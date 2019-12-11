@@ -3,6 +3,10 @@ name: Build on ARMv7
 on: [push]
 
 jobs:
-  steps:
-    using: 'docker'
-    image: 'Dockerfile'
+  armv7_job:
+    runs-on: ubuntu-18.04
+    name: Build on ARMv7 
+    steps:
+      runs:
+        using: 'docker'
+        image: 'Dockerfile'
