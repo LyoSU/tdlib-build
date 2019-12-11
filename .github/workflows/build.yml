@@ -2,8 +2,7 @@ name: Build on ARMv7
 
 on: [push]
 
-name: 'Hello World'
-
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
+jobs:
+  runs:
+    using: 'docker'
+    image: 'Dockerfile'
