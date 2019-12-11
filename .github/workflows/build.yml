@@ -6,13 +6,14 @@ jobs:
   armv7_job:
     runs-on: ubuntu-18.04
     steps:
-      name: 'Container Action Template'
-      description: 'Get started with Container actions'
-      author: 'GitHub'
-      inputs: 
-        myInput:
-          description: 'Input to use'
-          default: 'world'
-      runs:
-        using: 'docker'
-        image: 'Dockerfile'
+      uses:
+        name: 'Container Action Template'
+        description: 'Get started with Container actions'
+        author: 'GitHub'
+        inputs: 
+          myInput:
+            description: 'Input to use'
+            default: 'world'
+        runs:
+          using: 'docker'
+          image: 'Dockerfile'
