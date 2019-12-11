@@ -9,4 +9,17 @@ jobs:
     steps:
       - uses: actions/checkout@v1.0.0
       - uses: uraimo/run-on-arch-action@v1.0.5
-      - uses: actions/hello-world-docker-action@master
+        id: runcmd
+        with:
+          architecture: armv7
+          distribution: ubuntu18.04
+          run: |
+            uname -a
+            echo ::set-output name=uname::$(uname -a)
+      - name: build
+        run: |
+            runs:
+              using: 'docker'
+              image: 'Dockerfile'
+              args:
+                - ${{ inputs.who-to-greet }}
