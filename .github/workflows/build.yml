@@ -5,16 +5,8 @@ on: [push]
 jobs:
   armv7_job:
     runs-on: ubuntu-18.04
+    name: Build on ARMv7 
     steps:
-    - name: test
-      uses:
-        name: 'Container Action Template'
-        description: 'Get started with Container actions'
-        author: 'GitHub'
-        inputs: 
-          myInput:
-            description: 'Input to use'
-            default: 'world'
-        runs:
-          using: 'docker'
-          image: 'Dockerfile'
+      - uses: actions/checkout@v1.0.0
+      - uses: uraimo/run-on-arch-action@v1.0.5
+      - uses: actions/hello-world-docker-action@master
