@@ -30,4 +30,4 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: libtdjson.so
-          path: libtdjson.so
+          path: /td/build/libtdjson.so
