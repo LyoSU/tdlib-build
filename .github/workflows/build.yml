@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-18.04
     name: Build tdlib on ARMv7
     steps:
-      runs:
+      run:
         using: 'docker'
         image: 'Dockerfile'
