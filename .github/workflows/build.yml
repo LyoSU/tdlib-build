@@ -6,6 +6,7 @@ jobs:
   armv7_job:
     runs-on: ubuntu-18.04
     steps:
+    - name: test
       uses:
         name: 'Container Action Template'
         description: 'Get started with Container actions'
