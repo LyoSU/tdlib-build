@@ -1,11 +1,9 @@
-name: build tdlib arm7
-
 on: [push]
 
 jobs:
   armv7_job:
     runs-on: ubuntu-18.04
-    name: Build on ARMv7 
+    name: Build tdlib on ARMv7
     steps:
       - uses: actions/checkout@v1.0.0
       - uses: uraimo/run-on-arch-action@v1.0.5
@@ -22,8 +20,8 @@ jobs:
             openssl version
             cd /
             git clone https://github.com/tdlib/td.git /td
-            cd /td
+            cd td
             RUN mkdir build
-            cd /build
+            cd build
             cmake -DCMAKE_BUILD_TYPE=Release ..
             make -j 2
