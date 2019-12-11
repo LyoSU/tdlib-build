@@ -2,13 +2,16 @@ name: Build on ARMv7
 
 on: [push]
 
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
-inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
+jobs:
+  armv7_job:
+    runs-on: ubuntu-18.04
+    name: 'Container Action Template'
+    description: 'Get started with Container actions'
+    author: 'GitHub'
+    inputs: 
+      myInput:
+        description: 'Input to use'
+        default: 'world'
+    runs:
+      using: 'docker'
+      image: 'Dockerfile'
