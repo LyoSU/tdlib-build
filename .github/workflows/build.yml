@@ -27,3 +27,7 @@ jobs:
             cd build
             sudo cmake -DCMAKE_BUILD_TYPE=Release ..
             sudo make -j 2
+      - uses: actions/upload-artifact@v1
+        with:
+          name: libtdjson.so
+          path: libtdjson.so
