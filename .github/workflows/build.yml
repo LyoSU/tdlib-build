@@ -1,3 +1,7 @@
+name: Build on ARMv7
+
+on: [push]
+
 name: 'Container Action Template'
 description: 'Get started with Container actions'
 author: 'GitHub'
