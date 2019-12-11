@@ -22,7 +22,7 @@ jobs:
             openssl version
             sudo git clone https://github.com/tdlib/td.git /td
             cd /td
-            mkdir build
+            sudo mkdir build
             cd /build
-            cmake -DCMAKE_BUILD_TYPE=Release ..
-            make -j 2
+            sudo cmake -DCMAKE_BUILD_TYPE=Release ..
+            sudo make -j 2
