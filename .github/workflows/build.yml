@@ -3,6 +3,6 @@ name: Build on ARMv7
 on: [push]
 
 jobs:
-  runs:
+  steps:
     using: 'docker'
     image: 'Dockerfile'
