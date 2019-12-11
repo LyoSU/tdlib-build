@@ -17,6 +17,6 @@ jobs:
             uname -a
             echo ::set-output name=uname::$(uname -a)
       - name: build
-        run: |
+        runs:
           using: 'docker'
           image: 'Dockerfile'
