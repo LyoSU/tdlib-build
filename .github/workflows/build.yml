@@ -24,8 +24,7 @@ jobs:
             cd /td
             sudo mkdir build
             cd build
-            CC="gcc -m32"
-            sudo cmake -DCMAKE_BUILD_TYPE=Release ..
+            sudo cmake -DCMAKE_BUILD_TYPE=Release .. -A x64
             sudo make -j 2
       - uses: actions/upload-artifact@v1
         with:
