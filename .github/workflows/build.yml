@@ -24,7 +24,8 @@ jobs:
             cd /td
             sudo mkdir build
             cd build
-            sudo cmake -DCMAKE_BUILD_TYPE=Release .. -DCMAKE_GENERATOR_PLATFORM=x32
+            CC="gcc -m32"
+            sudo cmake -DCMAKE_BUILD_TYPE=Release ..
             sudo make -j 2
       - uses: actions/upload-artifact@v1
         with:
