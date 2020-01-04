@@ -2,8 +2,6 @@ name: Build on ARMv7
 
 on: [push]
 
-#new version
-
 jobs:
   armv7_job:
     runs-on: ubuntu-18.04
@@ -16,10 +14,6 @@ jobs:
           architecture: armv7
           distribution: ubuntu18.04
           run: |
-            uname -a
-            echo ::set-output name=uname::$(uname -a)
-            done
-            
             sudo apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
             openssl version
             sudo git clone https://github.com/tdlib/td.git /td
@@ -33,4 +27,3 @@ jobs:
         with:
           name: libtdjson
           path: /td/build/libtdjson.so
-      
