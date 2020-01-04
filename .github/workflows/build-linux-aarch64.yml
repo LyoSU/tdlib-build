@@ -25,5 +25,5 @@ jobs:
       - uses: actions/upload-artifact@v1
         name: save artifact
         with:
-          name: libtdjson
+          name: libtdjson_aarch64
           path: /td/build/libtdjson.so
