@@ -20,7 +20,8 @@ jobs:
             echo ::set-output name=uname::$(uname -a)
       - name: build
         run: |
-            echo ::set-output name=uname::$(uname -a)
+          uname -a
+          echo ::set-output name=uname::$(uname -a)
       #       sudo apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
       #       openssl version
       #       sudo git clone https://github.com/tdlib/td.git /td
