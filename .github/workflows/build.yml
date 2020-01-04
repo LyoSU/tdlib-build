@@ -16,9 +16,8 @@ jobs:
           cd /td
           sudo mkdir build
           cd build
-          CC="CFLAGS=-m32"
-          cmake -DCMAKE_BUILD_TYPE=Release ..
-          make -j 2
+          sudo cmake -DCMAKE_BUILD_TYPE=Release ..
+          sudo make -j 2
       - uses: actions/upload-artifact@v1
         name: save artifact
         with:
