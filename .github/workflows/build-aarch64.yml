@@ -1,0 +1,31 @@
+name: Build TDLib on Linux AArch64 
+
+on: [push]
+
+jobs:
+  armv7_job:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1.0.0
+      - uses: uraimo/run-on-arch-action@v1.0.5
+        name: build
+        id: runcmd
+        with:
+          architecture: aarch64
+          distribution: ubuntu18.04
+          run: |
+            apt update
+            apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
+            openssl version
+            git clone https://github.com/tdlib/td.git /td
+            cd /td
+            mkdir build
+            cd build
+            CC="CFLAGS=-m32"
+            cmake -DCMAKE_BUILD_TYPE=Release ..
+            make -j 2
+      - uses: actions/upload-artifact@v1
+        name: save artifact
+        with:
+          name: libtdjson
+          path: /td/build/libtdjson.so
