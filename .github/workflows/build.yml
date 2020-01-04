@@ -18,20 +18,18 @@ jobs:
           run: |
             uname -a
             echo ::set-output name=uname::$(uname -a)
-      - name: build
-        run: |
-          uname -a
-          echo ::set-output name=uname::$(uname -a)
-      #       sudo apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
-      #       openssl version
-      #       sudo git clone https://github.com/tdlib/td.git /td
-      #       cd /td
-      #       sudo mkdir build
-      #       cd build
-      #       CC="CFLAGS=-m32"
-      #       sudo cmake -DCMAKE_BUILD_TYPE=Release ..
-      #       sudo make -j 2
-      # - uses: actions/upload-artifact@v1
-      #   with:
-      #     name: libtdjson
-      #     path: /td/build/libtdjson.so
+            
+            sudo apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
+            openssl version
+            sudo git clone https://github.com/tdlib/td.git /td
+            cd /td
+            sudo mkdir build
+            cd build
+            CC="CFLAGS=-m32"
+            sudo cmake -DCMAKE_BUILD_TYPE=Release ..
+            sudo make -j 2
+      - uses: actions/upload-artifact@v1
+        with:
+          name: libtdjson
+          path: /td/build/libtdjson.so
+      
