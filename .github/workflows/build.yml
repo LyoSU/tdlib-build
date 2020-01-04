@@ -3,10 +3,10 @@ name: Build TDLib on Linux x86-64
 on: [push]
 
 jobs:
-  armv7_job:
+  build_job:
     runs-on: ubuntu-18.04
-    name: Build on x86-64
     steps:
+    - uses: actions/checkout@v1
       run: |
         apt update
         apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
@@ -18,3 +18,8 @@ jobs:
         CC="CFLAGS=-m32"
         cmake -DCMAKE_BUILD_TYPE=Release ..
         make -j 2
+    - uses: actions/upload-artifact@v1
+    name: save artifact
+    with:
+      name: libtdjson
+      path: /td/build/libtdjson.so

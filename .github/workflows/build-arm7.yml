@@ -3,10 +3,10 @@ name: Build TDLib on Linux ARMv7
 on: [push]
 
 jobs:
-  armv7_job:
+  build_job:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v1.0.0
+      - uses: actions/checkout@v1
       - uses: uraimo/run-on-arch-action@v1.0.5
         name: build
         id: runcmd
