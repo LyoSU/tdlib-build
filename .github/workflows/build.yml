@@ -19,7 +19,7 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release ..
         make -j 2
     - uses: actions/upload-artifact@v1
-    name: save artifact
-    with:
-      name: libtdjson
-      path: /td/build/libtdjson.so
+      name: save artifact
+      with:
+        name: libtdjson
+        path: /td/build/libtdjson.so
