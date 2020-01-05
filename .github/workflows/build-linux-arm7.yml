@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         id: runcmd
-      - uses: uraimo/run-on-arch-action@v1.0.5
+      - uses: uraimo/run-on-arch-action@master
         name: build
         with:
           architecture: armv7
@@ -39,8 +39,8 @@ jobs:
         run: |
           cd /
           ls
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@master
         name: save artifact
         with:
           name: libtdjson_armv7
-          path: /td
+          path: output.txt
