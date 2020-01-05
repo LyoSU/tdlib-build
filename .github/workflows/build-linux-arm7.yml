@@ -24,6 +24,9 @@ jobs:
             # make -j 2
             # cd /td/build/
             # ls
+      - name: show
+        run: |
+          ls
       - uses: actions/upload-artifact@v1
         name: save artifact
         with:
