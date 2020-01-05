@@ -1,29 +1,31 @@
-# name: Build TDLib on Linux AArch64 
+name: Build TDLib on Linux AArch64 
 
-# on: [push]
+on: [push]
 
-# jobs:
-#   build_job:
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - uses: actions/checkout@master
-#       - uses: uraimo/run-on-arch-action@master
-#         name: build
-#         with:
-#           architecture: aarch64
-#           distribution: ubuntu18.04
-#           run: |
-#             apt update
-#             apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
-#             openssl version
-#             git clone https://github.com/tdlib/td.git /td
-#             cd /td
-#             mkdir build
-#             cd build
-#             cmake -DCMAKE_BUILD_TYPE=Release ..
-#             make -j 2
-#       - uses: actions/upload-artifact@master
-#         name: save artifact
-#         with:
-#           name: libtdjson_aarch64
-#           path: /td/build/libtdjson.so
+jobs:
+  build_job:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+      - uses: uraimo/run-on-arch-action@master
+        name: build
+        with:
+          architecture: aarch64
+          distribution: ubuntu18.04
+          run: |
+            apt update
+            apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
+            openssl version
+            git clone https://github.com/tdlib/td.git td
+            cd td
+            mkdir build
+            cd build
+            cmake -DCMAKE_BUILD_TYPE=Release ..
+            make -j 2
+            cd td/build/
+            ls
+      - uses: actions/upload-artifact@master
+        name: save artifact
+        with:
+          name: libtdjson_aarch64
+          path: /td/build/libtdjson.so
