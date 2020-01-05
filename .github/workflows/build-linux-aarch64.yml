@@ -28,4 +28,4 @@ jobs:
         name: save artifact
         with:
           name: libtdjson_aarch64
-          path: /td/build/libtdjson.so
+          path: td/build/libtdjson.so
