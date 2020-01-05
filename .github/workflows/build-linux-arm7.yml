@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
+        id: runcmd
       - uses: uraimo/run-on-arch-action@v1.0.5
         name: build
         with:
@@ -14,9 +15,19 @@ jobs:
           distribution: ubuntu18.04
           run: |
             apt update
-            apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
-            openssl version
-            git clone https://github.com/tdlib/td.git /td
+            apt install -y build-essential
+            uname -a > output.txt
+            echo | gcc -v -E - 2>&1 | grep cc1 >> output.txt
+            lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' >> output.txt
+            cat /proc/meminfo | grep MemTotal | sed -r 's/MemTotal:\s{1,}//g' >> output.txt
+            echo ::set-output name=uname::$(uname -a)
+            echo ::set-output name=cctarget::$(echo | gcc -v -E - 2>&1 | grep cc1)
+            echo ::set-output name=cpuname::$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g')
+            echo ::set-output name=memtotal::$(cat /proc/meminfo | grep MemTotal | sed -r 's/MemTotal:\s{1,}//g')
+            # apt update
+            # apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
+            # openssl version
+            # git clone https://github.com/tdlib/td.git /td
             # cd /td
             # mkdir build
             # cd build
@@ -26,6 +37,7 @@ jobs:
             # ls
       - name: show
         run: |
+          cd /
           ls
       - uses: actions/upload-artifact@v1
         name: save artifact
