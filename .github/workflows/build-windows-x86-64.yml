@@ -6,7 +6,7 @@
 #   build_job:
 #     runs-on: windows-latest
 #     steps:
-#       - uses: actions/checkout@v1
+#       - uses: actions/checkout@master
 #       - name: build
 #         run: |
 #           git clone https://github.com/tdlib/td.git
@@ -24,7 +24,7 @@
 #           cd ..
 #           cd ..
 #           dir td/tdlib
-#       # - uses: actions/upload-artifact@v1
+#       # - uses: actions/upload-artifact@master
 #       #   name: save artifact
 #       #   with:
 #       #     name: libtdjson_x86-64

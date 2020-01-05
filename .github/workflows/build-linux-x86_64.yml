@@ -6,7 +6,7 @@
 #   build_job:
 #     runs-on: ubuntu-18.04
 #     steps:
-#       - uses: actions/checkout@v1
+#       - uses: actions/checkout@master
 #       - name: build
 #         run: |
 #           sudo apt update
@@ -18,7 +18,7 @@
 #           cd build
 #           sudo cmake -DCMAKE_BUILD_TYPE=Release ..
 #           sudo make -j 2
-#       - uses: actions/upload-artifact@v1
+#       - uses: actions/upload-artifact@master
 #         name: save artifact
 #         with:
 #           name: libtdjson_linix_x86_64
