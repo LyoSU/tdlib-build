@@ -1,26 +1,25 @@
-name: Build TDLib on Linux x86-64
+# name: Build TDLib on Linux x86-64
 
-on: [push]
+# on: [push]
 
-jobs:
-  build_job:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@master
-      - name: build
-        run: |
-          sudo apt-get update
-          sudo apt-get upgrade
-          sudo apt-get install make git zlib1g-dev libssl-dev gperf cmake g++
-          sudo git clone https://github.com/tdlib/td.git /td
-          cd /td
-          sudo mkdir build
-          cd build
-          export CXXFLAGS=""
-          sudo cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=../tdlib ..
-          sudo cmake --build . --target install
-      - uses: actions/upload-artifact@master
-        name: save artifact
-        with:
-          name: libtdjson_linix_x86_64
-          path: /td/build/libtdjson.so
+# jobs:
+#   build_job:
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - uses: actions/checkout@master
+#       - name: build
+#         run: |
+#           sudo apt update
+#           sudo apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
+#           openssl version
+#           sudo git clone https://github.com/tdlib/td.git /td
+#           cd /td
+#           sudo mkdir build
+#           cd build
+#           sudo cmake -DCMAKE_BUILD_TYPE=Release ..
+#           sudo make -j 2
+#       - uses: actions/upload-artifact@master
+#         name: save artifact
+#         with:
+#           name: libtdjson_linix_x86_64
+#           path: /td/build/libtdjson.so
