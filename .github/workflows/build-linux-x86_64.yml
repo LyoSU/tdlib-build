@@ -9,9 +9,9 @@ jobs:
       - uses: actions/checkout@master
       - name: build
         run: |
-          sudo apt update
-          sudo apt install -y g++ ccache openssl cmake gperf make git libssl-dev libreadline-dev zlib1g zlib1g-dev
-          openssl version
+          sudo apt-get update
+          sudo apt-get upgrade
+          sudo apt-get install make git zlib1g-dev libssl-dev gperf cmake g++
           sudo git clone https://github.com/tdlib/td.git /td
           cd /td
           sudo mkdir build
