@@ -16,8 +16,9 @@ jobs:
           cd /td
           sudo mkdir build
           cd build
-          sudo cmake -DCMAKE_BUILD_TYPE=Release ..
-          sudo make -j 2
+          export CXXFLAGS=""
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=../tdlib ..
+          cmake --build . --target install
       - uses: actions/upload-artifact@master
         name: save artifact
         with:
